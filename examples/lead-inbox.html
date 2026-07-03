@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>线索收件箱 — Agent Console UI 示例 B</title>
+<link rel="stylesheet" href="../assets/agent-console.css">
+<style>
+  body { margin: 0; }
+</style>
+</head>
+<body class="ac-app">
+<div class="ac-shell">
+
+  <!-- ===== 深色图标侧栏 ===== -->
+  <nav class="ac-rail">
+    <button class="ac-rail-btn" title="数据">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 13v5M12 9v9M17 5v13"/></svg>
+    </button>
+    <button class="ac-rail-btn" title="素材">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.5-3.5L6 23"/></svg>
+    </button>
+    <button class="ac-rail-btn" title="投放">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 11 18-8-8 18-2-8-8-2z"/></svg>
+    </button>
+    <button class="ac-rail-btn is-active" title="对话">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </button>
+    <button class="ac-rail-btn" title="话术">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 9h8M8 13h5"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+    </button>
+    <div class="ac-rail-spacer"></div>
+    <button class="ac-rail-btn" title="设置">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.2 4.2l2.8 2.8m10 10 2.8 2.8M1 12h4m14 0h4M4.2 19.8 7 17m10-10 2.8-2.8"/></svg>
+    </button>
+    <button class="ac-rail-btn" title="退出">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>
+    </button>
+  </nav>
+
+  <!-- ===== 会话列表栏 ===== -->
+  <aside class="ac-pane" style="width:372px;flex:none">
+    <div class="ac-pane-header" style="display:block">
+      <div class="ac-pill-row">
+        <button class="ac-pill is-active">全部 <span class="ac-pill-count">9587</span></button>
+        <button class="ac-pill"><span class="ac-dot is-error"></span>人工跟进中 <span class="ac-pill-count">886</span></button>
+        <button class="ac-pill"><span class="ac-dot is-info"></span>AI跟进中 <span class="ac-pill-count">8226</span></button>
+        <button class="ac-pill"><span class="ac-dot"></span>AI 已结单 <span class="ac-pill-count">475</span></button>
+      </div>
+      <div class="ac-row" style="margin-top:10px">
+        <select class="ac-select" style="flex:1.4"><option>全部产品线</option></select>
+        <select class="ac-select" style="flex:1"><option>全部质量</option></select>
+      </div>
+      <div class="ac-row" style="margin-top:8px">
+        <select class="ac-select" style="flex:1"><option>全部价值</option></select>
+        <select class="ac-select" style="flex:1"><option>全部流程</option></select>
+        <button class="ac-btn is-outline is-sm" style="flex:none">☆ 只看已收藏</button>
+      </div>
+      <div class="ac-row" style="margin-top:8px">
+        <select class="ac-select" style="width:110px;flex:none"><option>全部时间</option></select>
+        <div class="ac-search" style="flex:1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input class="ac-input" placeholder="搜索电话/名称/公司/国家(按 / 聚焦)">
+        </div>
+      </div>
+    </div>
+
+    <div class="ac-pane-body is-flush">
+      <div class="ac-list">
+
+        <div class="ac-list-item is-active">
+          <div class="ac-avatar">WL</div>
+          <div class="ac-list-main">
+            <div class="ac-list-top">
+              <span class="ac-list-name">Waleed Lashen, Trojan</span>
+              <span class="ac-list-time">1 小时前</span>
+              <span class="ac-t3">☆</span>
+            </div>
+            <div class="ac-list-line"><span class="ac-num">971565542260</span> <span class="ac-flag">🇦🇪</span> <span class="ac-t3">United Arab Emirates</span></div>
+            <div class="ac-tag-row">
+              <span class="ac-tag is-green">中质量</span>
+              <span class="ac-tag is-red">人工跟进中</span>
+              <span class="ac-tag is-gold">高价值</span>
+              <span class="ac-tag is-blue"><span class="ac-num">1</span> 条线索</span>
+            </div>
+            <div class="ac-list-snippet">客户来自阿联酋,公司名 Trojan,在建项目需采购60台以上干式变压器(500kVA×4台、250kVA×14台、…</div>
+          </div>
+        </div>
+
+        <div class="ac-list-item">
+          <div class="ac-avatar is-5">NИ</div>
+          <div class="ac-list-main">
+            <div class="ac-list-top">
+              <span class="ac-list-name">nikolaisuper55555, ИП Mykola …</span>
+              <span class="ac-list-time">2 小时前</span>
+              <span class="ac-t3">☆</span>
+            </div>
+            <div class="ac-list-line"><span class="ac-num">995500334445</span> <span class="ac-flag">🇬🇪</span> <span class="ac-t3">Georgia</span></div>
+            <div class="ac-tag-row">
+              <span class="ac-tag is-green">高质量</span>
+              <span class="ac-tag is-red">人工跟进中</span>
+              <span class="ac-tag">中价值</span>
+              <span class="ac-tag is-outline">vehicle</span>
+              <span class="ac-tag is-blue"><span class="ac-num">1</span> 条线索</span>
+            </div>
+            <div class="ac-list-snippet">客户Mykola Cherniavskyi,格鲁吉亚注册个体工商户,已提供营业执照、银行账户及联系方式。对吉利银河A7…</div>
+          </div>
+        </div>
+
+        <div class="ac-list-item">
+          <div class="ac-avatar is-2">AM</div>
+          <div class="ac-list-main">
+            <div class="ac-list-top">
+              <span class="ac-list-name">Abdul Momin</span>
+              <span class="ac-list-time">3 小时前</span>
+              <span class="ac-t3">☆</span>
+            </div>
+            <div class="ac-list-line"><span class="ac-num">971552755213</span> <span class="ac-flag">🇦🇪</span> <span class="ac-t3">United Arab Emirates</span></div>
+            <div class="ac-tag-row">
+              <span class="ac-tag">基础</span>
+              <span class="ac-tag is-blue">AI 跟进中</span>
+              <span class="ac-tag">低价值</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ac-list-item">
+          <div class="ac-avatar is-4">فو</div>
+          <div class="ac-list-main">
+            <div class="ac-list-top">
+              <span class="ac-list-name">الفوز بل الجنة</span>
+              <span class="ac-list-time">3 小时前</span>
+              <span class="ac-t3">☆</span>
+            </div>
+            <div class="ac-list-line"><span class="ac-num">971508307189</span> <span class="ac-flag">🇦🇪</span> <span class="ac-t3">United Arab Emirates</span></div>
+            <div class="ac-tag-row">
+              <span class="ac-tag">基础</span>
+              <span class="ac-tag is-blue">AI 跟进中</span>
+              <span class="ac-tag">低价值</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ac-list-item">
+          <div class="ac-avatar is-3">مز</div>
+          <div class="ac-list-main">
+            <div class="ac-list-top">
+              <span class="ac-list-name">مزوزي مفتاح 🔑</span>
+              <span class="ac-list-time">12 小时前</span>
+              <span class="ac-t3">☆</span>
+            </div>
+            <div class="ac-list-line"><span class="ac-num">213552256990</span> <span class="ac-flag">🇩🇿</span> <span class="ac-t3">Algeria</span></div>
+            <div class="ac-tag-row">
+              <span class="ac-tag">基础</span>
+              <span class="ac-tag is-blue">AI 跟进中</span>
+              <span class="ac-tag">低价值</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== 会话线程栏 ===== -->
+  <main class="ac-pane is-canvas" style="flex:1;min-width:480px">
+    <div class="ac-pane-header" style="background:var(--ac-panel)">
+      <div class="ac-avatar">WL</div>
+      <div style="flex:1;min-width:0">
+        <div class="ac-row">
+          <span class="ac-title-sm">Waleed Lashen, Trojan</span>
+          <span class="ac-t3 ac-sm ac-num">971565542260 · 🇦🇪 United Arab Emirates · wa_1196841720177415</span>
+        </div>
+        <div class="ac-tag-row" style="margin-top:3px">
+          <span class="ac-tag is-green">中质量</span>
+          <span class="ac-tag is-red">人工跟进中</span>
+          <span class="ac-tag is-gold">高价值</span>
+          <span class="ac-tag is-blue"><span class="ac-num">1</span> 条线索</span>
+        </div>
+      </div>
+      <button class="ac-btn is-whatsapp is-sm">WhatsApp ↗</button>
+      <button class="ac-btn is-outline is-sm">结束接管</button>
+      <button class="ac-close" title="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+
+    <div class="ac-pane-body">
+      <div class="ac-thread">
+
+        <div class="ac-msg is-in">
+          <div class="ac-msg-meta"><span class="ac-msg-sender">Waleed Lashen, Trojan</span><span>16:48</span></div>
+          <div class="ac-bubble">We need 60+ dry-type transformers for a construction project. 500kVA×4, 250kVA×14, outdoor, 50Hz.</div>
+        </div>
+
+        <div class="ac-msg is-out">
+          <div class="ac-bubble">
+            Perfect — 50Hz outdoor, UAE project. We have the full range covering 100/250/500 kVA. Let me connect you with our sales team to confirm specs, stock availability and a formal quote for your 60+ units. Could you share your company name?
+            <div class="ac-bubble-sub">完美——50Hz户外,阿联酋项目。我们拥有涵盖100/250/500 kVA的全系列产品。让我为您联系我们的销售团队,以确认规格、库存情况和针对您60多台设备的正式报价。能否请您分享一下贵公司的名称?</div>
+          </div>
+          <div class="ac-msg-meta"><span class="ac-msg-sender is-ai">AI Agent</span><span>16:51</span><span class="is-read">✓✓ 已读</span></div>
+        </div>
+
+        <div class="ac-msg is-in">
+          <div class="ac-msg-meta"><span class="ac-msg-sender">Waleed Lashen, Trojan</span><span>17:46</span></div>
+          <div class="ac-bubble">Trojan<div class="ac-bubble-sub">特洛伊木马</div></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ac-banner is-warning">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      <span><b>人工接管中</b> 现在你的消息会发给客户,AI 已暂停。最长保留 <span class="ac-num">12</span> 小时,每次手动发消息重新计时。</span>
+    </div>
+    <div class="ac-banner is-success">
+      <span class="ac-dot is-live"></span>
+      <span><span class="ac-num">24</span> 小时窗口剩余 <span class="ac-num">22 小时 24 分</span> 窗口内可自由发消息;超窗后只能发模板消息。</span>
+      <span class="ac-banner-action">📋 模板消息</span>
+    </div>
+
+    <div class="ac-pane-footer" style="background:var(--ac-panel)">
+      <div class="ac-stack is-sm">
+        <div class="ac-suggest">
+          <div class="ac-suggest-head">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.7a2 2 0 0 0 1.3 1.3L21 11l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 20l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 11l5.8-2a2 2 0 0 0 1.3-1.3L12 2z"/></svg>
+            AI 建议回复
+            <span class="ac-suggest-action">换一条 ↻</span>
+          </div>
+          <div class="ac-suggest-body">
+            谢谢,Trojan!您的完整需求已记录——60+ 台机组(100/250/500 kVA),户外型,50Hz,阿联酋。我们销售团队将尽快与您联系,提供规格说明和详细报价。
+            <div class="ac-t3" style="margin-top:6px">客户语言: Thanks, Trojan! Your full requirements are noted — 60+ units (100/250/500 kVA), outdoor, 50Hz, UAE. Our sales team will reach out shortly with specs and a detailed quote.</div>
+          </div>
+          <div class="ac-suggest-foot">
+            <span class="ac-t3 ac-sm">依据: 通用话术</span>
+            <button class="ac-btn is-primary is-sm">采纳建议 ↓</button>
+          </div>
+        </div>
+        <div class="ac-composer">
+          <textarea rows="1" placeholder="输入消息,可点「翻译」译成客户语言后再手改、发送"></textarea>
+          <div class="ac-composer-bar">
+            <button class="ac-btn is-ghost is-sm">📎 附件</button>
+            <button class="ac-btn is-ghost is-sm">🎙 语音</button>
+            <span class="ac-spring"></span>
+            <button class="ac-btn is-outline is-sm">🌐 翻译</button>
+            <button class="ac-btn is-primary is-sm">发送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== 客户作战卡 ===== -->
+  <aside class="ac-pane" style="width:340px;flex:none;border-left:1px solid var(--ac-border);border-right:0">
+    <div class="ac-pane-header">
+      <span class="ac-t3 ac-sm">客户作战卡</span>
+      <span class="ac-spring"></span>
+      <span class="ac-t3 ac-sm ac-num">WABA …77415</span>
+      <span class="ac-t3">☆</span>
+    </div>
+    <div class="ac-pane-body">
+      <div class="ac-stack">
+        <div class="ac-title">Waleed Lashen, Trojan</div>
+        <div class="ac-tag-row">
+          <span class="ac-tag is-green">中质量</span>
+          <span class="ac-tag is-gold">高价值</span>
+          <span class="ac-tag is-blue">需求明确</span>
+        </div>
+
+        <div class="ac-card is-soft ac-row" style="padding:8px 12px">
+          <span class="ac-sm">跟进负责人</span><span class="ac-spring"></span><span class="ac-strong ac-sm">当前账号</span>
+        </div>
+
+        <div class="ac-stepper">
+          <div class="ac-stepper-track">
+            <div class="ac-step is-done"></div>
+            <div class="ac-step is-current"></div>
+            <div class="ac-step"></div>
+            <div class="ac-step"></div>
+            <div class="ac-step"></div>
+            <div class="ac-step"></div>
+          </div>
+          <div class="ac-stepper-labels">
+            <span class="is-done">接待中</span><span class="is-current">需求明确</span>
+            <span>已报价</span><span>PI/合同</span><span>已交订金</span><span>成单/丢单</span>
+          </div>
+        </div>
+
+        <div class="ac-kv is-divided">
+          <div class="ac-kv-row"><span class="ac-kv-label">客户类型</span><span class="ac-kv-value is-empty">—</span></div>
+          <div class="ac-kv-row"><span class="ac-kv-label">客户国家</span><span class="ac-kv-value">United Arab Emirates</span></div>
+          <div class="ac-kv-row"><span class="ac-kv-label">车型</span><span class="ac-kv-value is-empty">—</span></div>
+          <div class="ac-kv-row"><span class="ac-kv-label">数量</span><span class="ac-kv-value ac-num">60 台</span></div>
+          <div class="ac-kv-row"><span class="ac-kv-label">目的港</span><span class="ac-kv-value is-empty">—</span></div>
+          <div class="ac-kv-row"><span class="ac-kv-label">贸易条款</span><span class="ac-kv-value is-empty">—</span></div>
+          <div class="ac-kv-row"><span class="ac-kv-label">公司</span><span class="ac-kv-value">Trojan</span></div>
+          <div class="ac-kv-row"><span class="ac-kv-label">Meta ID</span><span class="ac-kv-value ac-num">AE.1033692715675096</span></div>
+          <div class="ac-kv-row"><span class="ac-kv-label">来源广告</span><span class="ac-kv-value"><span class="ac-tag is-blue ac-num">广告 210034</span></span></div>
+        </div>
+
+        <a href="#" class="ac-sm">▸ 线索详情 · 全部字段(<span class="ac-num">1</span>条)</a>
+
+        <div class="ac-t3 ac-sm">状态推进</div>
+        <div class="ac-btn-grid">
+          <button class="ac-btn is-outline">标记已报价</button>
+          <button class="ac-btn is-outline">已发送 PI/合同</button>
+          <button class="ac-btn is-outline">已交订金</button>
+          <button class="ac-btn is-outline">补录成单</button>
+        </div>
+        <button class="ac-btn is-danger-soft" style="width:100%">标记丢单</button>
+
+        <div class="ac-t3 ac-sm">跟进记录</div>
+        <div class="ac-timeline">
+          <div class="ac-timeline-item">
+            <div class="ac-timeline-dot"></div>
+            <div class="ac-timeline-body">
+              <div class="ac-timeline-time">今天 16:51</div>
+              转人工跟进,客户已提供公司名,等待销售正式报价。
+            </div>
+          </div>
+          <div class="ac-timeline-item">
+            <div class="ac-timeline-dot"></div>
+            <div class="ac-timeline-body">
+              <div class="ac-timeline-time">今天 16:48</div>
+              AI 完成需求采集:60+ 台干式变压器,户外 50Hz。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+</body>
+</html>

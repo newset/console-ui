@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 投放控制台 — Agent Console UI 示例 A</title>
+<link rel="stylesheet" href="../assets/agent-console.css">
+<style>
+  body { margin: 0; }
+  .demo-answer p { margin: 0 0 10px; }
+  .demo-answer h3, .demo-answer h4 { margin: 18px 0 8px; }
+</style>
+</head>
+<body class="ac-app">
+<div class="ac-page" style="height:100vh;border-radius:0">
+
+  <!-- ===== 顶部页头:标题 + 状态 + 关闭 ===== -->
+  <header class="ac-pane-header">
+    <div style="flex:1;min-width:0">
+      <div class="ac-title ac-ellipsis">吉利银河星耀6 · AZ/GE/KZ B2B经销商 CTW投放 · ABO · <span class="ac-num">$90/天</span> · 1个月 · <span class="ac-num">07:00-23:00</span> 全周</div>
+      <div class="ac-row" style="margin-top:4px">
+        <span class="ac-status is-paused"><span class="ac-dot is-paused"></span>已暂停</span>
+        <span class="ac-tag is-blue">整车</span>
+      </div>
+    </div>
+    <button class="ac-close" title="关闭">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </header>
+
+  <div class="ac-shell" style="flex:1;min-height:0;height:auto">
+
+    <!-- ===== 左栏:创意素材中心 ===== -->
+    <aside class="ac-pane" style="width:300px;flex:none">
+      <div class="ac-pane-header" style="display:block">
+        <div class="ac-title-sm">创意素材中心</div>
+        <div class="ac-t3 ac-sm">整车</div>
+      </div>
+      <div class="ac-pane-body">
+        <div class="ac-stack">
+          <div class="ac-tabs" style="width:100%">
+            <button class="ac-tab is-active" style="flex:1;justify-content:center">Ogilvy创编 <span class="ac-tab-count">200</span></button>
+            <button class="ac-tab" style="flex:1;justify-content:center">Medici知识库 <span class="ac-tab-count">62</span></button>
+          </div>
+          <div class="ac-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input class="ac-input" placeholder="搜索素材">
+          </div>
+          <div class="ac-asset-grid">
+            <figure class="ac-asset" style="margin:0">
+              <div class="ac-asset-media"><span class="ac-ph is-dusk"></span></div>
+              <span class="ac-asset-badge">AI</span>
+              <figcaption class="ac-asset-caption">Быстрая отгрузка · Geely Galaxy A7</figcaption>
+              <span class="ac-asset-cta">🟢 WhatsApp</span>
+            </figure>
+            <figure class="ac-asset" style="margin:0">
+              <div class="ac-asset-media"><span class="ac-ph is-port"></span></div>
+              <span class="ac-asset-badge">AI</span>
+              <figcaption class="ac-asset-caption">Быстрая отгрузка · Geely Galaxy A7</figcaption>
+              <span class="ac-asset-cta">🟢 WhatsApp</span>
+            </figure>
+            <figure class="ac-asset" style="margin:0">
+              <div class="ac-asset-media"><span class="ac-ph is-fleet"></span></div>
+              <span class="ac-asset-badge">AI</span>
+              <figcaption class="ac-asset-caption">Оптовые поставки · Galaxy A7 EM-i</figcaption>
+              <span class="ac-asset-cta">🟢 WhatsApp</span>
+            </figure>
+            <figure class="ac-asset" style="margin:0">
+              <div class="ac-asset-media"><span class="ac-ph is-studio"></span></div>
+              <span class="ac-asset-badge">AI</span>
+              <figcaption class="ac-asset-caption">Оптовые поставки · Galaxy A7 EM-i</figcaption>
+              <span class="ac-asset-cta">🟢 WhatsApp</span>
+            </figure>
+            <figure class="ac-asset" style="margin:0">
+              <div class="ac-asset-media"><span class="ac-ph is-port"></span></div>
+              <span class="ac-asset-badge">AI</span>
+              <figcaption class="ac-asset-caption">Экспорт под ключ · A7 EM-i PHEV</figcaption>
+              <span class="ac-asset-cta">🟢 WhatsApp</span>
+            </figure>
+            <figure class="ac-asset" style="margin:0">
+              <div class="ac-asset-media"><span class="ac-ph is-dusk"></span></div>
+              <span class="ac-asset-badge">AI</span>
+              <figcaption class="ac-asset-caption">Отгрузка готова · Galaxy A7 EM-i</figcaption>
+              <span class="ac-asset-cta">🟢 WhatsApp</span>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== 中栏:AI 对话 ===== -->
+    <main class="ac-pane is-canvas" style="flex:1">
+      <div class="ac-pane-body">
+        <div class="ac-thread" style="gap:20px;max-width:760px;margin:0 auto">
+
+          <div class="ac-msg is-out" style="max-width:70%">
+            <div class="ac-bubble">做一个吉利星耀6的meta投放的广告。投放的国家是阿塞拜疆 + 格鲁吉亚 + 哈萨克斯坦。每个国家30刀的预算 投放1个月</div>
+          </div>
+
+          <div class="ac-answer demo-answer">
+            <p>好,信息收集得差不多了。现在我需要先了解几个关键点才能正式进入阶段 1。让我直接进入需求确认。</p>
+
+            <h3 class="ac-accent-heading is-lg">需求快速确认</h3>
+            <p class="ac-t2">感谢你的信息,有几个问题要先确认一下:</p>
+
+            <h4 class="ac-accent-heading">1. 业务模式是 B2B 还是 B2C?</h4>
+            <p class="ac-accent-heading" style="font-weight:400;font-size:13px"><span><b>这个很关键</b>,因为两种模式的受众、文案、创意策略完全不同:</span></p>
+
+            <table class="ac-table">
+              <thead>
+                <tr><th></th><th>B2B(经销商/进口商)</th><th>B2C(终端买家/个人车主)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>目标受众</td><td>当地汽车经销商、进口商、车队采购</td><td>普通消费者、个人购车者</td></tr>
+                <tr><td>广告诉求</td><td>现货批量、FOB价格、出口单证</td><td>性能、颜值、驾驶体验</td></tr>
+                <tr><td>PromeEngine支持</td><td>✅ V_1.0 完整支持</td><td>⚠️ V_1.0 设计面向 B2B,B2C 效果有限</td></tr>
+              </tbody>
+            </table>
+
+            <h4 class="ac-accent-heading" style="margin-top:22px">2. 核心卖点是什么?</h4>
+            <p class="ac-t2">吉利星耀6(Geely Starshine 6)的<b>你最想打的3个卖点</b>是?例如:续航里程、混动省油、空间大、性价比…</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="ac-pane-footer" style="border-top:0;background:transparent">
+        <div style="max-width:760px;margin:0 auto">
+          <div class="ac-composer">
+            <div class="ac-row">
+              <button class="ac-btn is-ghost is-sm is-icon" title="附件">📎</button>
+              <textarea rows="1" placeholder="告诉我你要推广的产品,或粘贴产品链接..." style="flex:1"></textarea>
+              <button class="ac-btn is-primary is-sm is-icon" style="border-radius:999px" title="发送">↑</button>
+            </div>
+          </div>
+          <div class="ac-row" style="margin-top:8px">
+            <span class="ac-composer-hint"><span class="ac-dot is-live"></span> Click-to-WhatsApp 投放 · 优化最大化 WhatsApp 对话数<br>上传图片 / PDF / Word / Markdown / TXT / CSV · 最大 <span class="ac-num">50MB</span></span>
+            <span class="ac-spring"></span>
+            <span class="ac-statline"><span>289.1K / 1.00M</span><span class="ac-sep">·</span><span>29%</span><span class="ac-sep">·</span><span>$5.76</span></span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== 右栏:广告系列摘要 ===== -->
+    <aside class="ac-pane" style="width:360px;flex:none;border-left:1px solid var(--ac-border);border-right:0">
+      <div class="ac-pane-body">
+        <div class="ac-stack">
+          <div class="ac-sm"><span class="ac-t3">广告系列</span> <span class="ac-num ac-strong">Geely_Starshine6_CTW_B2B_AZ-GE-KZ</span></div>
+
+          <div class="ac-metric-row">
+            <div>
+              <div class="ac-metric-label">日预算</div>
+              <div class="ac-metric-value">$90.00</div>
+              <div class="ac-metric-sub">· <span class="ac-num">30</span> 天</div>
+            </div>
+            <div>
+              <div class="ac-metric-label">预估对话</div>
+              <div class="ac-metric-value">675-1800</div>
+              <div class="ac-metric-sub">· 单价 <span class="ac-num">$1.5-$4</span></div>
+            </div>
+          </div>
+
+          <div class="ac-t3 ac-sm">询盘落地</div>
+          <div class="ac-contact">
+            <div class="ac-contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <div class="ac-num ac-strong">+86 185 8855 7892</div>
+              <div class="ac-t3 ac-sm">RevoPanda Auto Export</div>
+            </div>
+          </div>
+
+          <div class="ac-t3 ac-sm">广告组 · <span class="ac-num">3</span></div>
+          <div class="ac-row" style="flex-wrap:nowrap;overflow:hidden">
+            <span class="ac-chip" style="min-width:0"><span class="ac-ellipsis">FB_AZ_IMPORTERS_MOBILE_AND</span> <span class="ac-chip-count">2</span></span>
+            <span class="ac-chip is-muted" style="min-width:0"><span class="ac-ellipsis">FB_GE_REEXPORT_MOBI</span></span>
+          </div>
+
+          <div class="ac-kv">
+            <div class="ac-kv-row"><span class="ac-kv-label">地区</span><span class="ac-kv-value ac-num">AZ</span></div>
+            <div class="ac-kv-row"><span class="ac-kv-label">年龄</span><span class="ac-kv-value ac-num">28-55 岁</span></div>
+            <div class="ac-kv-row"><span class="ac-kv-label">兴趣</span>
+              <span class="ac-kv-value"><span class="ac-tag-row">
+                <span class="ac-tag is-outline">car dealer</span>
+                <span class="ac-tag is-outline">automotive importer</span>
+                <span class="ac-tag is-outline">vehicle trading company</span>
+                <span class="ac-tag is-outline">international trade</span>
+                <span class="ac-tag is-outline">car importer</span>
+                <span class="ac-tag is-outline">automotive wholesaler</span>
+              </span></span>
+            </div>
+            <div class="ac-kv-row"><span class="ac-kv-label">排期</span><span class="ac-kv-value ac-num">每天 07:00-23:00</span></div>
+          </div>
+
+          <div class="ac-t3 ac-sm">广告 · <span class="ac-num">2</span> 点击预览</div>
+          <div class="ac-row">
+            <span class="ac-thumb" style="display:block"><span class="ac-ph is-studio" style="border-radius:5px"></span></span>
+            <span class="ac-thumb" style="display:block"><span class="ac-ph is-fleet" style="border-radius:5px"></span></span>
+          </div>
+
+          <div class="ac-row" style="margin-top:4px">
+            <span class="ac-status is-paused"><span class="ac-dot is-paused"></span>已暂停</span>
+            <span class="ac-spring"></span>
+            <button class="ac-btn is-outline is-icon" title="刷新">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6"/></svg>
+            </button>
+            <button class="ac-btn is-primary is-lg">✦ 恢复投放</button>
+          </div>
+
+          <hr class="ac-divider">
+          <div class="ac-links">
+            <a href="#">看数据</a><a href="#">看询盘</a><a href="#">Meta 后台</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+</body>
+</html>
